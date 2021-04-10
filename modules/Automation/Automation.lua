@@ -19,4 +19,6 @@ function Automation.Initialize(enabled)
     else
         Automation.SV = ZO_SavedVars:NewAccountWide(LUIE.SVName, LUIE.SVVer, "Automation", Automation.Defaults)
     end
+
+    Automation.GroupInitialize()
 end
