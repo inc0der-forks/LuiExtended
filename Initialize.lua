@@ -99,6 +99,7 @@ local function OnAddonOnLoaded(eventCode, addonName)
     LUIE.UnitFrames.Initialize(LUIE.SV.UnitFrames_Enabled)
     LUIE.SpellCastBuffs.Initialize(LUIE.SV.SpellCastBuff_Enable)
     LUIE.SlashCommands.Initialize(LUIE.SV.SlashCommands_Enable)
+    LUIE.Automation.Initialize()
 
     -- Load Timetamp Color
     LUIE.UpdateTimeStampColor()
@@ -112,7 +113,7 @@ local function OnAddonOnLoaded(eventCode, addonName)
     LUIE.UnitFrames.CreateSettings()
     LUIE.SpellCastBuffs.CreateSettings()
     LUIE.SlashCommands.CreateSettings()
-
+    LUIE.Automation.CreateSettings()
     -- Display changelog screen
     LUIE.ChangelogScreen()
 

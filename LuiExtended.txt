@@ -123,6 +123,9 @@ modules/SlashCommands/Group.lua
 modules/SlashCommands/Guild.lua
 modules/SlashCommands/Social.lua
 
+modules/Automation/Automation.lua
+modules/Automation/GroupAutomation.lua
+
 modules/UnitFrames/UnitFrames.lua
 
 settings/Settings.lua
@@ -133,3 +136,4 @@ settings/InfoPanel.lua
 settings/SlashCommands.lua
 settings/SpellCastBuffs.lua
 settings/UnitFrames.lua
+settings/Automation.lua
