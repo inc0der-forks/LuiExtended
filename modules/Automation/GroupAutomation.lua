@@ -3,7 +3,9 @@ local Automation = LUIE.Automation
 --accept looking for group ready check notifications
 local function OnActivityFinderStatusUpdate(eventCode, status)
     if status == ACTIVITY_FINDER_STATUS_READY_CHECK and HasLFGReadyCheckNotification() then
-        LUIE.CallLater("ReadyCheck", 1000, AcceptLFGReadyCheckNotification)
+        zo_callLater(function()
+            AcceptLFGReadyCheckNotification()
+        end, 1000)
     end
 
     if status == ACTIVITY_FINDER_STATUS_IN_PROGRESS then

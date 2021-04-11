@@ -231,16 +231,3 @@ function LUIE.UpdateMundusTooltipSyntax(abilityId, tooltipText)
     tooltipText = string.gsub(tooltipText, GetString(SI_LUIE_SKILL_MUNDUS_STRING), GetString(SI_LUIE_SKILL_DRINK_INCREASE))
     return tooltipText
 end
-
--- function to delay a function call by a set amount of time (From BanditsUI)
-function LUIE.CallLater(name, ms, func, opt1, opt2)
-	if ms then
-		EVENT_MANAGER:RegisterForUpdate("CallLater_"..name, ms,
-		function()
-			EVENT_MANAGER:UnregisterForUpdate("CallLater_"..name)
-			func(opt1, opt2)
-		end)
-	else
-		EVENT_MANAGER:UnregisterForUpdate("CallLater_"..name)
-	end
-end
