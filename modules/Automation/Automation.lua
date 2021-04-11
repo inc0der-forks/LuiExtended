@@ -11,7 +11,9 @@ Automation.Defaults = {
     autoSelectGroupCategory = false,
     autoAcceptGroupLeave = false,
     autoTypeConfirmDialogs = false,
-    autoConfirmDestroyItemDialog = false
+    autoConfirmDestroyItemDialog = false,
+    enableDefaultGuildBank = false,
+    defaultGuildBank = PLAYER_INVENTORY.lastSuccessfulGuildBankId
 }
 
 

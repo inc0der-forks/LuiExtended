@@ -16,6 +16,21 @@ function Automation.CreateSettings()
     local Defaults = Automation.Defaults
     local Settings = Automation.SV
 
+    -- Function to retrieve an index from a guild ID for use in the dropdown setting
+    local function GetGuildBankChoicesIndex(guildId)
+        local choiceIndex = 1
+	    local i
+	    local guildBanksList = Automation.GuildBanksList()
+
+	    for i = 1, table.getn(guildBanksList) do
+            if GetGuildName(guildId) == guildBanksList[i] then
+                choiceIndex = i
+            end
+        end
+
+        return choiceIndex
+    end
+
     local panelDataAutomation = {
         type = "panel",
         -- Add automation locale SI_LUI_LAM_AUOTMATION
@@ -129,6 +144,42 @@ function Automation.CreateSettings()
                     Settings.autoConfirmDestroyItemDialog = value
                 end,
                 default = Defaults.autoConfirmDestroyItemDialog,
+                disabled = function()
+                    return false
+                end,
+            },
+            {
+                type = "checkbox",
+                name = "Enable Default Guild Bank",
+                tooltip = "Enables the use of setting the default guild bank",
+                width = "half",
+                getFunc = function()
+                    return Settings.enableDefaultGuildBank
+                end,
+                setFunc = function(value)
+                    Settings.enableDefaultGuildBank = value
+                end,
+                requiresReload = true,
+                default = Defaults.enableDefaultGuildBank,
+                disabled = function()
+                    return false
+                end,
+            },
+            {
+                type = "dropdown",
+                name = "Default Guild Bank",
+                tooltip = "Set the guild bank to your choice when logging on",
+                width = "half",
+                choices = Automation.GuildBanksList(),
+                -- So the value is the ID of the guild instead of name
+                choicesValues = { 1, 2, 3, 4, 5 },
+                getFunc = function()
+                    return GetGuildBankChoicesIndex(Settings.defaultGuildBank)
+                end,
+                setFunc = function(value)
+                    Settings.defaultGuildBank = GetGuildId(value)
+                end,
+                default = GetGuildBankChoicesIndex(Settings.defaultGuildBank),
                 disabled = function()
                     return false
                 end,

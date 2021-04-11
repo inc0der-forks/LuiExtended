@@ -46,11 +46,35 @@ local function ShowPlatformDialog(dialogName)
     end
 end
 
+local function OnPlayerReady()
+    local Settings = Automation.SV
+    PLAYER_INVENTORY.lastSuccessfulGuildBankId = Settings.defaultGuildBank
+end
+
 function Automation.InventoryIntiialize()
+    local Settings = Automation.SV
     ZO_PreHook("ZO_Dialogs_ShowDialog", ShowDialogConfirm)
     ZO_PreHook("ZO_Dialogs_ShowPlatformDialog", ShowPlatformDialog)
     ZO_PreHook("ZO_InventorySlot_OnMouseEnter", OnMouseEnterItem)
-    if Automation.SV.autoConfirmDestroyItemDialog then
+
+    if Settings.autoConfirmDestroyItemDialog then
         ESO_Dialogs["DESTROY_ITEM_PROMPT"].noChoiceCallback = function() return end
     end
+
+    if Settings.enableDefaultGuildBank then
+        EVENT_MANAGER:RegisterForEvent(LUIE.name, EVENT_PLAYER_ACTIVATED, OnPlayerReady)
+    end
+end
+
+function Automation.GuildBanksList()
+	local i
+	local guildBanksList = {}
+	for i = 1, GetNumGuilds() do
+		local id = GetGuildId(i)
+		local guildName = GetGuildName(id)
+		-- guildBanksList[guildName] = id
+		table.insert(guildBanksList, guildName)
+	end
+
+	return guildBanksList
 end
