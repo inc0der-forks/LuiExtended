@@ -31,4 +31,10 @@ function Automation.GroupInitialize()
         local scene = SCENE_MANAGER:GetScene("groupMenuKeyboard")
         scene:RegisterCallback("StateChange", OnGroupSceneShown)
     end
+
+    if Settings.autoAcceptGroupLeave then
+        GROUP_LIST["keybindStripDescriptor"][3].callback = function()
+            GroupLeave()
+        end
+    end
 end

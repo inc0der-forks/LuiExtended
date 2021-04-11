@@ -79,6 +79,22 @@ function Automation.CreateSettings()
                     return false
                 end,
             },
+            {
+                type = "checkbox",
+                name = "Auto Accept Group Leave",
+                tooltip = "Auto accept the confirmation when leaving group",
+                getFunc = function()
+                    return Settings.autoAcceptGroupLeave
+                end,
+                setFunc = function(value)
+                    Settings.autoAcceptGroupLeave = value
+                end,
+                warning = warningText,
+                default = Defaults.autoAcceptGroupLeave,
+                disabled = function()
+                    return false
+                end,
+            },
         }
     }
 

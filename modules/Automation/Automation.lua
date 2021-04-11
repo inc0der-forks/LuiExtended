@@ -8,7 +8,8 @@ Automation.Enabled = false
 
 Automation.Defaults = {
     autoConfirmLFG = false,
-    autoSelectGroupCategory = false
+    autoSelectGroupCategory = false,
+    autoAcceptGroupLeave = false
 }
 
 
