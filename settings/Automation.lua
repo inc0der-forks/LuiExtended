@@ -34,6 +34,8 @@ function Automation.CreateSettings()
 
     local optionsDataAutomation = {}
 
+    local warningText = "You must reload the UI for this option to take effect"
+
         -- Automation Description
     optionsDataAutomation[#optionsDataAutomation + 1] = {
         type = "description",
@@ -55,7 +57,7 @@ function Automation.CreateSettings()
                 setFunc = function(value)
                     Settings.autoConfirmLFG = value
                 end,
-                width = "half",
+                warning = warningText,
                 default = Defaults.autoConfirmLFG,
                 disabled = function()
                     return false
@@ -71,7 +73,7 @@ function Automation.CreateSettings()
                 setFunc = function(value)
                     Settings.autoSelectGroupCategory = value
                 end,
-                width = "half",
+                warning = warningText,
                 default = Defaults.autoSelectGroupCategory,
                 disabled = function()
                     return false
