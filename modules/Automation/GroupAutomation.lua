@@ -12,6 +12,12 @@ local function OnActivityFinderStatusUpdate(eventCode, status)
     end
 end
 
+local function OnGroupSceneShown(_, state)
+    if (state == "shown") then
+        GROUP_MENU_KEYBOARD:ShowCategory(GROUP_LIST_FRAGMENT)
+    end
+end
+
 --Queue auto confirm
 function Automation.GroupInitialize()
     local Settings = Automation.SV
@@ -19,5 +25,10 @@ function Automation.GroupInitialize()
 
     if Settings.autoConfirmLFG == true then
         eventManager:RegisterForEvent(LUIE.name, EVENT_ACTIVITY_FINDER_STATUS_UPDATE, OnActivityFinderStatusUpdate)
+    end
+
+    if Settings.autoSelectGroupCategory then
+        local scene = SCENE_MANAGER:GetScene("groupMenuKeyboard")
+        scene:RegisterCallback("StateChange", OnGroupSceneShown)
     end
 end

@@ -7,7 +7,8 @@ local Group = LUIE.Automation.Group
 Automation.Enabled = false
 
 Automation.Defaults = {
-    autoConfirmLFG = false
+    autoConfirmLFG = false,
+    autoSelectGroupCategory = false
 }
 
 

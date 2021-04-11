@@ -61,8 +61,24 @@ function Automation.CreateSettings()
                     return false
                 end,
             },
+            {
+                type = "checkbox",
+                name = "Auto Select Group Category",
+                tooltip = "When opening the activity finder, auto select the group category instead of the previously selected category",
+                getFunc = function()
+                    return Settings.autoSelectGroupCategory
+                end,
+                setFunc = function(value)
+                    Settings.autoSelectGroupCategory = value
+                end,
+                width = "half",
+                default = Defaults.autoSelectGroupCategory,
+                disabled = function()
+                    return false
+                end,
+            },
+        }
     }
-}
 
     -- Register the settings panel
       LAM:RegisterAddonPanel(LUIE.name .. 'AutomationOptions', panelDataAutomation)
