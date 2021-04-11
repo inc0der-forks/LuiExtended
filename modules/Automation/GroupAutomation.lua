@@ -9,7 +9,6 @@ local function OnActivityFinderStatusUpdate(eventCode, status)
     end
 
     if status == ACTIVITY_FINDER_STATUS_IN_PROGRESS then
-        LUIE.PrintToChat('LFG Activity in Progress')
         PlaySound(SOUNDS.LOCKPICKING_BREAK)
     end
 end
