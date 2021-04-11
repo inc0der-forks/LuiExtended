@@ -9,7 +9,9 @@ Automation.Enabled = false
 Automation.Defaults = {
     autoConfirmLFG = false,
     autoSelectGroupCategory = false,
-    autoAcceptGroupLeave = false
+    autoAcceptGroupLeave = false,
+    autoTypeConfirmDialogs = false,
+    autoConfirmDestroyItemDialog = false
 }
 
 
@@ -23,4 +25,5 @@ function Automation.Initialize(enabled)
     end
 
     Automation.GroupInitialize()
+    Automation.InventoryIntiialize()
 end

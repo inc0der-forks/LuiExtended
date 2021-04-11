@@ -98,6 +98,44 @@ function Automation.CreateSettings()
         }
     }
 
+    -- Inventory Automation
+    optionsDataAutomation[#optionsDataAutomation + 1] = {
+        type = "submenu",
+        name = "Inventory Automation",
+        controls = {
+            {
+                type = "checkbox",
+                name = "Auto Type Confirm",
+                tooltip = "Auto type CONFIRM for transmute, improve, and enchant dialogs for locked items",
+                getFunc = function()
+                    return Settings.autoTypeConfirmDialogs
+                end,
+                setFunc = function(value)
+                    Settings.autoTypeConfirmDialogs = value
+                end,
+                default = Defaults.autoTypeConfirmDialogs,
+                disabled = function()
+                    return false
+                end,
+            },
+            {
+                type = "checkbox",
+                name = "Auto Confirm Destroy Item",
+                tooltip = "Auto accepts confirm dialog when destroying an item",
+                getFunc = function()
+                    return Settings.autoConfirmDestroyItemDialog
+                end,
+                setFunc = function(value)
+                    Settings.autoConfirmDestroyItemDialog = value
+                end,
+                default = Defaults.autoConfirmDestroyItemDialog,
+                disabled = function()
+                    return false
+                end,
+            },
+        }
+    }
+
     -- Register the settings panel
       LAM:RegisterAddonPanel(LUIE.name .. 'AutomationOptions', panelDataAutomation)
       LAM:RegisterOptionControls(LUIE.name .. 'AutomationOptions', optionsDataAutomation)
