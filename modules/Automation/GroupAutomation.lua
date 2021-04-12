@@ -38,4 +38,10 @@ function Automation.GroupInitialize()
             GroupLeave()
         end
     end
+
+    if Settings.autoAcceptLeaveInstance then
+        GROUP_LIST["keybindStripDescriptor"][4].callback = function()
+            ExitInstanceImmediately()
+        end
+    end
 end

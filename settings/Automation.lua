@@ -110,6 +110,22 @@ function Automation.CreateSettings()
                     return false
                 end,
             },
+            {
+                type = "checkbox",
+                name = "Auto Accept Leave Instance",
+                tooltip = "Auto accept the confirmation when leaving a group instance",
+                getFunc = function()
+                    return Settings.autoAcceptLeaveInstance
+                end,
+                setFunc = function(value)
+                    Settings.autoAcceptLeaveInstance = value
+                end,
+                warning = warningText,
+                default = Defaults.autoAcceptLeaveInstance,
+                disabled = function()
+                    return false
+                end,
+            },
         }
     }
 
