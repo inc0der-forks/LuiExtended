@@ -15,6 +15,7 @@ Automation.Defaults = {
     autoConfirmDestroyItemDialog = false,
     enableDefaultGuildBank = false,
     defaultGuildBank = PLAYER_INVENTORY.lastSuccessfulGuildBankId,
+    autoConfirmFastTravel = false
 }
 
 
@@ -29,4 +30,5 @@ function Automation.Initialize(enabled)
 
     Automation.GroupInitialize()
     Automation.InventoryIntiialize()
+    Automation.MapInitialize()
 end

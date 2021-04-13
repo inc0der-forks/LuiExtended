@@ -203,6 +203,28 @@ function Automation.CreateSettings()
         }
     }
 
+    -- Map Automation
+    optionsDataAutomation[#optionsDataAutomation + 1] = {
+        type = "submenu",
+        name = "Map Automation",
+        controls = {
+            {
+                type = "checkbox",
+                name = "Auto Confirm Fast Travel",
+                tooltip = "Auto acccept the confirm dialog when fsast travelling",
+                getFunc = function()
+                    return Settings.autoConfirmFastTravel
+                end,
+                setFunc = function(value)
+                    Settings.autoConfirmFastTravel = value
+                end,
+                default = Defaults.autoConfirmFastTravel,
+                disabled = function()
+                    return false
+                end,
+            },
+        }
+    }
     -- Register the settings panel
       LAM:RegisterAddonPanel(LUIE.name .. 'AutomationOptions', panelDataAutomation)
       LAM:RegisterOptionControls(LUIE.name .. 'AutomationOptions', optionsDataAutomation)
