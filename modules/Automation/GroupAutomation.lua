@@ -45,3 +45,5 @@ function Automation.GroupInitialize()
         end
     end
 end
+
+-- Add which dungeons you queued for

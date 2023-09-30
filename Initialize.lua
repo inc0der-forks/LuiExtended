@@ -80,6 +80,9 @@ local function OnAddonOnLoaded(eventCode, addonName)
     -- Load saved variables
     LoadSavedVars()
 
+    -- Load Debug Library
+    LUIE.logger = LibDebugLogger(LUIE.name)
+
     -- Initialize Hooks
     LUIE.InitializeHooks()
 

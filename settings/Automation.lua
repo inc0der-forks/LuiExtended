@@ -19,10 +19,10 @@ function Automation.CreateSettings()
     -- Function to retrieve an index from a guild ID for use in the dropdown setting
     local function GetGuildBankChoicesIndex(guildId)
         local choiceIndex = 1
-	    local i
-	    local guildBanksList = Automation.GuildBanksList()
+        local i
+        local guildBanksList = Automation.GuildBanksList()
 
-	    for i = 1, table.getn(guildBanksList) do
+        for i = 1, table.getn(guildBanksList) do
             if GetGuildName(guildId) == guildBanksList[i] then
                 choiceIndex = i
             end
@@ -219,6 +219,55 @@ function Automation.CreateSettings()
                     Settings.autoConfirmFastTravel = value
                 end,
                 default = Defaults.autoConfirmFastTravel,
+                disabled = function()
+                    return false
+                end,
+            },
+            {
+                type = "header",
+                name = "Map Cleanup Settings"
+            },
+            {
+                type = "checkbox",
+                name = "Hide Non-owned House Pins",
+                tooltip = "Hide house pins of homes you don't own yet",
+                getFunc = function()
+                    return Settings.hideUnownedHousePins
+                end,
+                setFunc = function(value)
+                    Settings.hideUnownedHousePins = value
+                end,
+                default = Defaults.autoConfirmFastTravel,
+                disabled = function()
+                    return false
+                end,
+            },
+            {
+                type = "checkbox",
+                name = "Hide Owned House Pins",
+                tooltip = "Hide house pins of homes you own",
+                getFunc = function()
+                    return Settings.hideOwnedHousePins
+                end,
+                setFunc = function(value)
+                    Settings.hideOwnedHousePins = value
+                end,
+                default = Defaults.hideOwnedHousePins,
+                disabled = function()
+                    return false
+                end,
+            },
+            {
+                type = "checkbox",
+                name = "Hide Group Dungeon Pins",
+                tooltip = "Hide group dungeon pins",
+                getFunc = function()
+                    return Settings.hideGroupDungeonPins
+                end,
+                setFunc = function(value)
+                    Settings.hideGroupDungeonPins = value
+                end,
+                default = Defaults.hideGroupDungeonPins,
                 disabled = function()
                     return false
                 end,

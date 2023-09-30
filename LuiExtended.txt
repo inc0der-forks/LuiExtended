@@ -5,7 +5,7 @@
 ## AddOnVersion: 625
 ## Description: Provides UnitFrames, InfoPanel, Combat Text & Info, Buffs & Debuff Tracking, Chat Announcements and Slash Commands.
 ## DependsOn: LibAddonMenu-2.0>=31 LibMediaProvider-1.0
-## OptionalDependsOn: LibChatMessage pChat
+## OptionalDependsOn: LibChatMessage pChat LibDebugLogger
 ## IsLibrary: false
 ## SavedVariables: LUIESV
 
@@ -125,6 +125,8 @@ modules/SlashCommands/Social.lua
 
 modules/Automation/Automation.lua
 modules/Automation/GroupAutomation.lua
+modules/Automation/InventoryAutomation.lua
+modules/Automation/MapAutomation.lua
 
 modules/UnitFrames/UnitFrames.lua
 

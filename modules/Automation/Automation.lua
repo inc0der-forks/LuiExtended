@@ -15,7 +15,10 @@ Automation.Defaults = {
     autoConfirmDestroyItemDialog = false,
     enableDefaultGuildBank = false,
     defaultGuildBank = PLAYER_INVENTORY.lastSuccessfulGuildBankId,
-    autoConfirmFastTravel = false
+    autoConfirmFastTravel = false,
+    hideUnownedHousePins = false,
+    hideOwnedHousePins = false,
+    hideGroupDungeonPins = false,
 }
 
 

@@ -38,6 +38,8 @@ local function ShowPlatformDialog(dialogName)
             if dialogName == "DESTROY_ITEM_PROMPT" then
                 if bagId == nil then return end
                 ZO_Dialogs_ReleaseDialog("DESTROY_ITEM_PROMPT")
+                -- If CallSecureProtected works I can remove all Mouse event code
+                -- CallSecureProtected("RespondToDestroyRequest", true)
                 DestroyItem(bagId, slotId)
                 bagId = nil
                 slotId = nil
